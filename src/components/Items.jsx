@@ -8,7 +8,11 @@ export default function Items(props) {
 	const [count, setCount] = useState(0)
 	return (
 		<section className='item-section'>
-			<img className='item-img' src={image} alt='' />
+			<img
+				className={count ? 'red-border item-img' : 'item-img'}
+				src={image}
+				alt=''
+			/>
 			<div className='addtocart-container'>
 				{count === 0 ? (
 					<button className='addtocart-btn'>
