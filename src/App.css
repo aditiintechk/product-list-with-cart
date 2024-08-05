@@ -95,15 +95,28 @@ main {
 	cursor: pointer;
 }
 
-.addtocart-section:hover,
+/* .addtocart-section:hover,
 .addtocart-section:focus {
 	opacity: 0.9;
+} */
+
+.decrement {
+	border: 1px solid #fdfdfd;
+	padding: 0.5em 0.2em;
+	border-radius: 50%;
 }
 
-.sign:hover,
-.sign:focus {
-	opacity: 0.9;
-	color: #000;
+.increment {
+	border: 1px solid #fdfdfd;
+	padding: 0.2em;
+	border-radius: 50%;
+}
+
+.decrement:hover,
+.decrement:focus,
+.increment:hover,
+.increment:focus {
+	background-color: #b97d6b;
 }
 
 .red-border {

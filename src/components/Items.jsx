@@ -8,8 +8,21 @@ export default function Items(props) {
 	const [count, setCount] = useState(0)
 
 	function handleClick() {
-		setCount((prevCount) => prevCount + 1)
-		getData(name, price)
+		const newCount = count + 1
+		setCount(newCount)
+		getData(name, price, newCount)
+	}
+
+	function handleIncrement() {
+		const newCount = count + 1
+		setCount(newCount)
+		getData(name, price, newCount)
+	}
+
+	function handleDecrement() {
+		const newCount = count - 1
+		setCount(newCount)
+		getData(name, price, newCount)
 	}
 
 	return (
@@ -28,21 +41,17 @@ export default function Items(props) {
 				) : (
 					<div className='addtocart-section'>
 						<img
-							className='sign'
+							className='decrement'
 							src={minus}
 							alt='minus symbol'
-							onClick={() => {
-								setCount((prevCount) => prevCount - 1)
-							}}
+							onClick={handleDecrement}
 						/>
 						<span className='count'>{count}</span>
 						<img
-							className='sign'
+							className='increment'
 							src={plus}
 							alt='plus symbol'
-							onClick={() => {
-								setCount((prevCount) => prevCount + 1)
-							}}
+							onClick={handleIncrement}
 						/>
 					</div>
 				)}

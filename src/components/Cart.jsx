@@ -1,6 +1,7 @@
 import emptyCartImg from '../assets/icons/illustration-empty-cart.svg'
 
-export default function Cart() {
+export default function Cart(props) {
+	console.log(props.cartData)
 	return (
 		<section className='cart-section'>
 			<h2>Your Cart (0)</h2>
