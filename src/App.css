@@ -12,7 +12,7 @@ main {
 	display: flex;
 	justify-content: center;
 	gap: 2em;
-	border: 1px solid #000;
+	/* border: 1px solid #000; */
 }
 
 .title {
@@ -93,6 +93,11 @@ main {
 	bottom: 28%;
 	left: 20%;
 	cursor: pointer;
+}
+
+.addtocart-section:hover,
+.addtocart-section:focus {
+	opacity: 0.9;
 }
 
 .sign:hover,
