@@ -1,7 +1,7 @@
 body {
 	margin: 0;
 	box-sizing: border-box;
-	background-color: #e0dbd4;
+	background-color: #ddd4c6;
 }
 
 main {
@@ -16,6 +16,7 @@ main {
 
 .title {
 	font-size: 2rem;
+	margin: 0 0 0.5em;
 }
 
 /* Item */
@@ -27,15 +28,78 @@ main {
 	place-items: center;
 }
 
+.item-section {
+	position: relative;
+}
+
 .item-img {
-	width: 10rem;
+	width: 12rem;
 	border-radius: 10px;
 }
 
+.item-category {
+	color: #696969;
+	font-size: 0.75rem;
+	font-weight: 500;
+	margin-top: 2em;
+}
+
+.item-name {
+	font-size: 0.8rem;
+}
+
+.item-price {
+	color: #b05236;
+	font-size: 0.9rem;
+}
+
+.addtocart-btn {
+	outline: transparent;
+	border: 1px solid #9c9c9c;
+	padding: 0.4em 1.8em;
+	display: flex;
+	align-items: center;
+	gap: 0.3em;
+	border-radius: 25px;
+	font-family: inherit;
+	font-weight: 600;
+	font-size: 0.75rem;
+	position: absolute;
+	bottom: 28%;
+	left: 15%;
+	cursor: pointer;
+}
+
+.addtocart-btn:hover,
+.addtocart-btn:focus {
+	opacity: 0.9;
+}
+
+.addtocart-section {
+	outline: transparent;
+	border: 1px solid #b05236;
+	background-color: #b05236;
+	color: #fdfdfd;
+	padding: 0.4em 1.8em;
+	display: flex;
+	align-items: center;
+	gap: 2em;
+	border-radius: 25px;
+	font-family: inherit;
+	font-size: 0.75rem;
+	position: absolute;
+	bottom: 28%;
+	left: 20%;
+	cursor: pointer;
+}
+
+.sign:hover,
+.sign:focus {
+	opacity: 0.9;
+	color: #000;
+}
+
 @media (max-width: 720px) {
-	main {
-		flex-direction: column;
-	}
 	.items {
 		grid-template-columns: repeat(2, 1fr);
 	}
@@ -52,5 +116,11 @@ main {
 
 	.item-img {
 		width: 18rem;
+	}
+}
+
+@media (max-width: 800px) {
+	main {
+		flex-direction: column;
 	}
 }
