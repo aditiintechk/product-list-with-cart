@@ -20,7 +20,7 @@ function App() {
 		<main>
 			<section className='item-container'>
 				<h1 className='title'>Desserts</h1>
-				{items}
+				<div className='items'>{items}</div>
 			</section>
 			<Cart />
 		</main>
