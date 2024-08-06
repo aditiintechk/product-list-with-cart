@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 export default function Cart(props) {
 	const { cartData, handleConfirmBtn } = props
 
-	let filteredCartData = cartData.filter((item) => item.count > 0)
+	const filteredCartData = cartData.filter((item) => item.count > 0)
 
 	const totalCount = filteredCartData.reduce(
 		(sum, item) => sum + item.count,
@@ -68,5 +68,5 @@ export default function Cart(props) {
 
 Cart.propTypes = {
 	cartData: PropTypes.array,
-	handleConfirmBtn: PropTypes.function || PropTypes.undefined,
+	handleConfirmBtn: PropTypes.func,
 }

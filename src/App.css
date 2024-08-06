@@ -131,7 +131,8 @@ main {
 	border-radius: 8px;
 }
 
-.cart-section h2 {
+.cart-section h2,
+.modal-section h2 {
 	font-size: 1.2rem;
 	color: #b05236;
 	margin-bottom: 1em;
@@ -206,14 +207,14 @@ hr {
 /* Modal Section */
 
 .modal-section {
-	width: 300px;
+	width: 320px;
 	position: fixed;
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -50%);
 	background-color: white;
-	padding: 20px;
-	z-index: 1001; /* higher than the overlay */
+	padding: 2em;
+	z-index: 1001;
 	box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
 }
 

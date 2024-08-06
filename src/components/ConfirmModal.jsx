@@ -48,5 +48,5 @@ export default function ConfirmModal(props) {
 
 ConfirmModal.propTypes = {
 	filteredData: PropTypes.array,
-	handleStartBtn: PropTypes.function || PropTypes.undefined,
+	handleStartBtn: PropTypes.func,
 }

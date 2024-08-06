@@ -9,9 +9,10 @@ function App() {
 	const [cartData, setCartData] = useState([])
 	const [showModal, setShowModal] = useState(false)
 	const [filteredData, setFilteredData] = useState([])
+	const [resetItems, setResetItems] = useState(false)
 
 	function getData(name, price, count) {
-		const newItem = {
+		let newItem = {
 			name,
 			price,
 			count,
@@ -31,14 +32,15 @@ function App() {
 	}
 
 	function handleConfirmBtn(filteredCartData) {
-		setShowModal((prevShowModal) => !prevShowModal)
+		setShowModal(true)
 		console.log(filteredCartData)
 		setFilteredData(filteredCartData)
 	}
 
 	function handleStartBtn() {
-		setShowModal((prevShowModal) => !prevShowModal)
+		setShowModal(false)
 		setCartData([])
+		setResetItems(true)
 	}
 
 	const items = data.map((item) => {
@@ -50,6 +52,8 @@ function App() {
 				category={item.category}
 				price={item.price}
 				getData={getData}
+				resetItems={resetItems}
+				setResetItems={setResetItems}
 			/>
 		)
 	})

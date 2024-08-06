@@ -1,14 +1,20 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import cartImg from '../assets/icons/icon-add-to-cart.svg'
 import plus from '../assets/icons/icon-increment-quantity.svg'
 import minus from '../assets/icons/icon-decrement-quantity.svg'
 import PropTypes from 'prop-types'
 
 export default function Items(props) {
-	const { image, name, category, price, getData } = props
+	const { image, name, category, price, getData, resetItems, setResetItems } =
+		props
 	const [count, setCount] = useState(0)
 
-	// if (cartCount === 0) setCount(0)
+	useEffect(() => {
+		if (resetItems) {
+			setCount(0)
+			setResetItems(false)
+		}
+	}, [resetItems, setResetItems])
 
 	function handleClick() {
 		const newCount = count + 1
@@ -71,5 +77,7 @@ Items.propTypes = {
 	name: PropTypes.string,
 	category: PropTypes.string,
 	price: PropTypes.number,
-	getData: PropTypes.function || PropTypes.undefined,
+	getData: PropTypes.func,
+	resetItems: PropTypes.bool,
+	setResetItems: PropTypes.func,
 }
