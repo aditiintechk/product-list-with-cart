@@ -2,10 +2,14 @@ import './App.css'
 import data from '../data.js'
 import Items from './components/Items.jsx'
 import Cart from './components/Cart.jsx'
+import ConfirmModal from './components/ConfirmModal.jsx'
 import { useState } from 'react'
 
 function App() {
 	const [cartData, setCartData] = useState([])
+	const [showModal, setShowModal] = useState(false)
+	const [filteredData, setFilteredData] = useState([])
+
 	function getData(name, price, count) {
 		const newItem = {
 			name,
@@ -24,6 +28,17 @@ function App() {
 				return [...prevCartData, newItem]
 			}
 		})
+	}
+
+	function handleConfirmBtn(filteredCartData) {
+		setShowModal((prevShowModal) => !prevShowModal)
+		console.log(filteredCartData)
+		setFilteredData(filteredCartData)
+	}
+
+	function handleStartBtn() {
+		setShowModal((prevShowModal) => !prevShowModal)
+		setCartData([])
 	}
 
 	const items = data.map((item) => {
@@ -45,7 +60,13 @@ function App() {
 				<h1 className='title'>Desserts</h1>
 				<div className='items'>{items}</div>
 			</section>
-			<Cart cartData={cartData} />
+			<Cart cartData={cartData} handleConfirmBtn={handleConfirmBtn} />
+			{showModal ? (
+				<ConfirmModal
+					filteredData={filteredData}
+					handleStartBtn={handleStartBtn}
+				/>
+			) : null}
 		</main>
 	)
 }

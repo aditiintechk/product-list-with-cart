@@ -1,14 +1,10 @@
 import emptyCartImg from '../assets/icons/illustration-empty-cart.svg'
+import PropTypes from 'prop-types'
 
 export default function Cart(props) {
-	const { cartData } = props
-	for (let i = 0; i < cartData.length; i++) {
-		if (cartData[i].count === 0) {
-			cartData.pop(cartData[i])
-		}
-	}
+	const { cartData, handleConfirmBtn } = props
 
-	const filteredCartData = cartData.filter((item) => item.count > 0)
+	let filteredCartData = cartData.filter((item) => item.count > 0)
 
 	const totalCount = filteredCartData.reduce(
 		(sum, item) => sum + item.count,
@@ -18,7 +14,7 @@ export default function Cart(props) {
 		(sum, item) => sum + item.price * item.count,
 		0
 	)
-	const cartItems = cartData.map((eachItem) => {
+	const cartItems = filteredCartData.map((eachItem) => {
 		return (
 			<div className='cart-item' key={eachItem.name}>
 				<h5 className='cart-item-name'>{eachItem.name}</h5>
@@ -56,9 +52,21 @@ export default function Cart(props) {
 						<h5>Order Total</h5>
 						<h4>${totalAmount.toFixed(2)}</h4>
 					</div>
-					<button className='confirm-order-btn'>Confirm Order</button>
+					<button
+						className='confirm-order-btn'
+						onClick={() => handleConfirmBtn(filteredCartData)}
+					>
+						Confirm Order
+					</button>
 				</div>
 			)}
 		</section>
 	)
+}
+
+// add react prop types according to the eslint doc -- #TODO: is it required?
+
+Cart.propTypes = {
+	cartData: PropTypes.array,
+	handleConfirmBtn: PropTypes.function || PropTypes.undefined,
 }

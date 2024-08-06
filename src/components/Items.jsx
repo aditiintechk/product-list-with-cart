@@ -2,10 +2,13 @@ import { useState } from 'react'
 import cartImg from '../assets/icons/icon-add-to-cart.svg'
 import plus from '../assets/icons/icon-increment-quantity.svg'
 import minus from '../assets/icons/icon-decrement-quantity.svg'
+import PropTypes from 'prop-types'
 
 export default function Items(props) {
 	const { image, name, category, price, getData } = props
 	const [count, setCount] = useState(0)
+
+	// if (cartCount === 0) setCount(0)
 
 	function handleClick() {
 		const newCount = count + 1
@@ -61,4 +64,12 @@ export default function Items(props) {
 			<h4 className='item-price'>${price.toFixed(2)}</h4>
 		</section>
 	)
+}
+
+Items.propTypes = {
+	image: PropTypes.string,
+	name: PropTypes.string,
+	category: PropTypes.string,
+	price: PropTypes.number,
+	getData: PropTypes.function || PropTypes.undefined,
 }

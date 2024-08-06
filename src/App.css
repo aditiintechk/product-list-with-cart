@@ -2,6 +2,7 @@ body {
 	margin: 0;
 	box-sizing: border-box;
 	background-color: #ddd4c6;
+	position: relative;
 }
 
 main {
@@ -120,7 +121,8 @@ main {
 
 /* Cart */
 
-.cart-section {
+.cart-section,
+.modal-section {
 	width: 300px;
 	background-color: #eceaea;
 	height: fit-content;
@@ -181,7 +183,8 @@ hr {
 	font-weight: 500;
 }
 
-.confirm-order-btn {
+.confirm-order-btn,
+.start-order-btn {
 	width: 100%;
 	padding: 0.8em 1em;
 	background-color: #b05236;
@@ -194,8 +197,35 @@ hr {
 }
 
 .confirm-order-btn:hover,
-.confirm-order-btn:focus {
+.confirm-order-btn:focus,
+.start-order-btn:hover,
+.start-order-btn:focus {
 	opacity: 0.95;
+}
+
+/* Modal Section */
+
+.modal-section {
+	width: 300px;
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	background-color: white;
+	padding: 20px;
+	z-index: 1001; /* higher than the overlay */
+	box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.modal-overlay {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.5); /* semi-transparent black */
+	backdrop-filter: blur(5px); /* blur effect */
+	z-index: 1000; /* below the modal */
 }
 
 @media (max-width: 720px) {
